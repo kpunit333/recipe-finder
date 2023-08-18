@@ -51,10 +51,11 @@ function initializeRecipeCard()
 
 function generateFeaturedCard(list, requiredLen)
 {
-    for(let i=0; i<requiredLen; i++)
+    for(let i=0; i<requiredLen && i<list.length; i++)
     {
         let recipeLabel = list[i].recipe.label;
         let recipeImg = list[i].recipe.image;
+        console.log(recipeImg);
 
         let ingredientString = "";
         let ingredientLen = list[i].recipe.ingredients.length;
@@ -243,7 +244,7 @@ async function getFeaturedFood()
         try
         {
             let food = await recipeAPI(featuredQueryBox[i], 2);
-            foodList.push(food[1]);
+            foodList.push(food[0]);
         }
         catch
         {
