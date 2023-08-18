@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://png.pngtree.com/png-vector/20220708/ourmid/pngtree-kitchen-logo-png-image_5761793.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="style.css">
+    <title>FlavorQuest</title>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-comp nav-head">
+            <img src="flavor-quest-lite.png" alt="logo" id="logoimg" width="160px" height="40px">
+        </div>
+
+        <div class="nav-comp nav-tab">
+            <a href="#" class="nav-link homeScreen">Home</a>
+            <a href="about.html" class="nav-link gameScreen">About</a>
+        </div>
+    </nav>
+
+    <div class="search-bar-box">
+        <div class="input-box">
+            <input type="text" placeholder="Search recipe" class="search-input">
+            <button class="search-btn"> <i class="bi bi-search"></i></button>
+        </div>
+    </div>
+
+    <div class="recipe-body">
+
+        <div class="recipe-page-nav">
+            <h4>
+                Your searched recipes
+            </h4>
+        </div>
+
+        <div class="recipe-processor">
+
+            <span class="not-searched">You have not searched any item yet.</span>
+            <span class="error-comments"></span>
+            <img src="green-loader-2.webp" alt="loading recipe ..." class="loader recipe-loader">
+
+        </div>
+        
+        <div class="recipe-container">
+            <!-- Recipe items will be added dynamically -->
+
+        </div>
+
+    </div>
+    
+    <div class="featured-body">
+
+        <div class="featured-page-nav">
+            <h4>
+                Featured Recipes for you
+            </h4>
+        </div>
+
+        <!-- <div class="featured-food-container"> -->
+            <!-- Featured items will be added dynamically -->
+
+            <!-- <img src="green-loader-2.webp" alt="loading recipe ..." class="loader featured-loader"> -->
+            
+        <!-- </div> -->
+
+        <div class="featured-food-container">
+            <!-- Featured items will be added dynamically -->
+
+            <!-- <img src="green-loader-2.webp" alt="loading recipe ..." class="loader featured-loader"> -->
+            
+        
+            <div id="featured-0" class="featured-card">
+            
+                <h3 id="featured-main-0" class="featured-card-name featured-show">Mattar Paneer</h3>
+
+                <div class="featured-card-main-layer  featured-card-inner-layer">
+                    
+                    <img src="https://edamam-product-images.s3.amazonaws.com/web-img/28a/28ac183a985155b5593483a198acf16f.png?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aCXVzLWVhc3QtMSJGMEQCIBAxNnXYyZ53%2FOuvb3szdEfksjoMzKMAkel9c%2BRO0J6cAiB99yfp4nByVjQv2tCpvPBuDdW1QWNMMlaGiPCaJgPDkCrCBQjo%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDE4NzAxNzE1MDk4NiIMpC6BTFTCDc%2FpafpyKpYF9ld%2FwXbSRVmwv2ExOsYYkrUboezVkaGwFFo6eJMK9Mit7cIMLhpzLtQQ75n2J%2B%2ByMSHw97iMHO24G5eZ%2BmoEnLzKUHHdZggG6zNZFmN5VHtihVRRrDEUogKhMCZY%2FOJ%2FZEohFLY1YgqtBRLSAU79%2F8udYCg2HzdLJX%2FgxGpHQ4ehypyc5D9z9f%2FLy0LUGJaHDTFrc%2BrBIuAXun8M1wUofO5WDUXXPHeBQ7CCMNgZWQYowXoPWZQs6NwLo5nK%2FoXYzhKWyYPDQb4ODwnno1nT8ZpchG5Q7%2Fkq4m4sePTCXDCtUMTpFsosl36DurGhVha5q8x%2F7u1wKE8974oLrAmLjLsG8JG8gaPGKAyU7VpXM2VNrV2ZaQII22Qv0a0aMH5fYrw%2FEnNzDFGdsPYy8391qOHts%2BhrEPcpFbW3B5zABpLQSsWU7FNmUR6%2FfQM1w71p6ciUdJ1hN%2BDAY9j3CxhuTynV%2FwutdyL4hnJzyGD3kQ9%2FEgnfK5XQpkUrieo7Er4vOmwUH9DNUqxQJg0RD0skN2aX5cBHDHEOYm6m%2BYBgT05z45z42iloufYgJzIxpvEk4YW0he4ZjiL3CG%2FAlTkCIbduuZr03BtBJuDaUdBtTRJsnj5g2iRrKH%2FiuH1FeYOzMi7bWDX5OGLd9VfOupoGubAi10%2BIB7Hzfi%2BCx%2BWXKf6F%2ButwfpSG7jMEaLmzOQOIrNibAQoOaCe%2Bg%2FthfIWL3IldI88NUHaD5FWWu1kP9nuQAg2OvzuWRBxMnKez9FJ4oCZwhT8tjMA9erAXcpE%2FwOvGug%2BgzOwyC%2BBUg5VNUF%2FDJx%2FZMoVhLRrhv%2FxRZ%2BEZoF8xljvgSUf1Irct6IGmWKeoRQJAd3zzLmdTpSDy7owBFgsC0Eow1%2BynpgY6sgHG1JNNmhYC64V0DzYipLORMr3lyf7fFjj0HRh87pcC1AXsYtQIWMwj4hdNUUhe7u537qtF2dVHN7ZbYSa%2F5WW76VSrqxRva%2B%2FeorZfzYEpIaMbAkD22AOWyGAS1b3Z0LdeTUKkxQ6h3t1FXt6YV%2BdViq6CiJOBmo8igixWdZhWVOxMgENvxlglK5VS6d8vskJNebxClEsSQRzaori35gIMHmi2YKvFsTQjfSkEgDj5th0G&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230802T070900Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Credential=ASIASXCYXIIFKVVTQUUE%2F20230802%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=6f6c9d521bcddcb5d77422a5941fb19a2cd9c35252e46a0b82d4697741847e2f" alt="" width="280px" height="300px" class="featured-card-img">
+            
+                </div>
+
+                <div class="featured-card-ingredient-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>paneer</li>
+                
+                <li>vegetable oil</li>
+                
+                <li>red onion</li>
+                
+                <li>ginger</li>
+                
+                <li>garlic</li>
+                
+                <li>coriander</li>
+                
+                <li>turmeric</li>
+                
+                <li>chili powder</li>
+                
+                <li>black pepper</li>
+                
+                <li>masala</li>
+                
+                <li>canned crushed tomatoes</li>
+                
+                <li>pea</li>
+                
+                <li>fine-grain sea salt</li>
+                
+                <li>cilantro</li>
+                            
+                
+                </div>
+                
+                <div class="featured-card-recipe-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>12 ounces paneer</li>
+                
+                <li>1/4 cup vegetable oil or ghee for frying the paneer (optional) plus 2 tablespoons, divided</li>
+                
+                <li>2 cups finely diced red onion</li>
+                
+                <li>2 tablespoons peeled and grated ginger</li>
+                
+                <li>1 teaspoon peeled and grated garlic</li>
+                
+                <li>1 teaspoon ground coriander</li>
+                
+                <li>1 teaspoon turmeric</li>
+                
+                <li>1 1/2 teaspoons red chili powder</li>
+                
+                <li>1/2 teaspoon freshly ground black pepper</li>
+                
+                <li>1 teaspoon garam masala</li>
+                
+                <li>12 ounces canned crushed tomatoes with juice</li>
+                
+                <li>3 cups shelled pea (frozen or fresh)</li>
+                
+                <li>1 1/2 teaspoons fine-grain sea salt</li>
+                
+                <li>1/4 cup loosely packed fresh cilantro, for garnish</li>
+                
+                                
+                </div>
+
+                <div class="featured-card-btn-box">
+                    <button id="featured-ingredient-0" class="see-ingredients featured-show">See ingredients</button>
+                    <button id="featured-recipe-0" class="see-recipe featured-show">See Recipe</button>
+                </div>
+
+            </div>
+
+            <div id="featured-1" class="featured-card">
+                
+                <h3 id="featured-main-1" class="featured-card-name featured-show">Chicken Paprikash</h3>
+
+                <div class="featured-card-main-layer  featured-card-inner-layer">
+                    
+                    <img src="https://edamam-product-images.s3.amazonaws.com/web-img/e12/e12b8c5581226d7639168f41d126f2ff.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE4aCXVzLWVhc3QtMSJIMEYCIQDX1AFaam1W7BOOfmwMe28p19tFUKnlKDT81NISLpeChwIhAM9ms5y9IdEuYJEST8GCTmsXfGhGVIHpS8MoNMsSM856KsIFCOf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMMTg3MDE3MTUwOTg2Igxjz9fzzROD28PsBX4qlgX3SA0W2il8TlY6a30ND70UgP7DJqgYZHIgOtkxWJix4CdoLV637Yn%2FpBgvKh95zDjoNd9166C6F3N0JwNds2qLCnMeSyFh1lpsloCKhMX%2FJKo9uFi7kDPSvB%2BwMPw04aRECRoX3VZ4CMCCkZFVhTNxuf1eOEkatm7J8ObamR%2F5nS8DteKGBRi7qfIe84doGip4am8OiAAl17ML1uIhAxnIVteS8W1%2BwcXb0%2BGif4zkB83t0lsvqm3igCtI0zaM9E%2Bt1YQIiztOgkkqOPYXx33J3qnptXJjcDaiR1P1J7oDIe%2B1tZg4GybHfOHNAycHOT%2BjHYM9KcUE6JHtbu22yyBqDLWltNn8vs%2FJS0HI1aEVpWw9J%2F0r%2B%2BUuB3i7qDVK2HzrijHrWBaw67b9Cqx3lb8JCHQEaU67aHR7dCEM0SODGmoJSQ0bLzb7LAPQG6LR3UDm3CNn4YgF0gaE4uSSMVXigLmqgFeHsR%2BDBL7JYn%2BpBIEst0AF2clu2l5dmy2QOC218Vlst8UaGKhcV8n4r2mbin7Gl2vgpfaKTbwsK9j39aMdfnBkV9PHnF0TmujLF0ztjPhTL%2FaoTKN8Po2QhW4KztI1gEPqEKX%2BAHktMIrNWwPKK0mG1o5WYRBNxzOH3QN5MxaHLI5HpPoQ4FIsAuQLhizUF0YZ0DjZMwjNJNNmTmD0w5qidVFHLbJ4gJ4NbyFzStZVm%2F9jZxe1Ju89E2I%2FCY%2FR8cWFtqMckSY2wkds8nQYO2Q3W7dbNSXkz4l%2BVW2o6z21R6w9B5wFN3uoVIJbZFYBhm4RvHcGdi8bilu56%2Bav37btlyjA%2Blfzg6yiMzOUkpR7BWN8PMgyP1Sn0YZwyAf0C%2FcAA6GL%2FEDYZQln8yC4GXZp0jDz1aemBjqwAVvcZzIC9VA4Vystn4GKfoHPMESV21LbD5hQXEPuqTmWXAvwK%2BaqF2Yc1e38WuiGFHqMVism5XaHLpX0pCI4Y4dqU04R74%2BPnw%2FxnA6BKiu47JHhKBMPgZmM4fVjPyJH6jSI6K7U0QXe9uYYGXVfCmDXDhVz40hHSM0gzKe30xCxc4fmQf431PvmOyUIqdu04zyIGM9i94bjcnYP%2FsIBjFBqaiJaUUt09yPwYHdvGoNp&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230802T070901Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Credential=ASIASXCYXIIFJVNUG67W%2F20230802%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=f456f66a208abf719333f59b503a0851c053330671cb7017253225ea4c01e268" alt="" width="280px" height="300px" class="featured-card-img">
+            
+                </div>
+
+                <div class="featured-card-ingredient-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>chicken - drumsticks</li>
+                
+                <li>thighs</li>
+                
+                <li>salt</li>
+                
+                <li>black pepper</li>
+                
+                <li>olive oil</li>
+                
+                <li>onion</li>
+                
+                <li>Anaheim pepper</li>
+                
+                <li>paprika</li>
+                
+                <li>chicken stock</li>
+                
+                <li>salt</li>
+                
+                <li>sour cream</li>
+                
+                <li>flour</li>
+                            
+                
+                </div>
+                
+                <div class="featured-card-recipe-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>640 grams chicken - drumsticks and thighs ( 3 whole chicken legs cut apart)</li>
+                
+                <li>1/2 teaspoon salt</li>
+                
+                <li>1/4 teaspoon black pepper</li>
+                
+                <li>1 tablespoon butter – cultured unsalted (or olive oil)</li>
+                
+                <li>240 grams onion sliced thin (1 large onion)</li>
+                
+                <li>70 grams Anaheim pepper chopped (1 large pepper)</li>
+                
+                <li>25 grams paprika (about 1/4 cup)</li>
+                
+                <li>1 cup chicken stock</li>
+                
+                <li>1/2 teaspoon salt</li>
+                
+                <li>1/2 cup sour cream</li>
+                
+                <li>1 tablespoon flour – all-purpose</li>
+                
+                                
+                </div>
+
+                <div class="featured-card-btn-box">
+                    <button id="featured-ingredient-1" class="see-ingredients featured-show">See ingredients</button>
+                    <button id="featured-recipe-1" class="see-recipe featured-show">See Recipe</button>
+                </div>
+
+            </div>
+
+            <div id="featured-2" class="featured-card">
+                
+                <h3 id="featured-main-2" class="featured-card-name featured-show">Pizza Frizza recipes</h3>
+
+                <div class="featured-card-main-layer  featured-card-inner-layer">
+                    
+                    <img src="https://edamam-product-images.s3.amazonaws.com/web-img/94a/94aeb549b29ac92dced2ac55765f38f9?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE4aCXVzLWVhc3QtMSJIMEYCIQDX1AFaam1W7BOOfmwMe28p19tFUKnlKDT81NISLpeChwIhAM9ms5y9IdEuYJEST8GCTmsXfGhGVIHpS8MoNMsSM856KsIFCOf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMMTg3MDE3MTUwOTg2Igxjz9fzzROD28PsBX4qlgX3SA0W2il8TlY6a30ND70UgP7DJqgYZHIgOtkxWJix4CdoLV637Yn%2FpBgvKh95zDjoNd9166C6F3N0JwNds2qLCnMeSyFh1lpsloCKhMX%2FJKo9uFi7kDPSvB%2BwMPw04aRECRoX3VZ4CMCCkZFVhTNxuf1eOEkatm7J8ObamR%2F5nS8DteKGBRi7qfIe84doGip4am8OiAAl17ML1uIhAxnIVteS8W1%2BwcXb0%2BGif4zkB83t0lsvqm3igCtI0zaM9E%2Bt1YQIiztOgkkqOPYXx33J3qnptXJjcDaiR1P1J7oDIe%2B1tZg4GybHfOHNAycHOT%2BjHYM9KcUE6JHtbu22yyBqDLWltNn8vs%2FJS0HI1aEVpWw9J%2F0r%2B%2BUuB3i7qDVK2HzrijHrWBaw67b9Cqx3lb8JCHQEaU67aHR7dCEM0SODGmoJSQ0bLzb7LAPQG6LR3UDm3CNn4YgF0gaE4uSSMVXigLmqgFeHsR%2BDBL7JYn%2BpBIEst0AF2clu2l5dmy2QOC218Vlst8UaGKhcV8n4r2mbin7Gl2vgpfaKTbwsK9j39aMdfnBkV9PHnF0TmujLF0ztjPhTL%2FaoTKN8Po2QhW4KztI1gEPqEKX%2BAHktMIrNWwPKK0mG1o5WYRBNxzOH3QN5MxaHLI5HpPoQ4FIsAuQLhizUF0YZ0DjZMwjNJNNmTmD0w5qidVFHLbJ4gJ4NbyFzStZVm%2F9jZxe1Ju89E2I%2FCY%2FR8cWFtqMckSY2wkds8nQYO2Q3W7dbNSXkz4l%2BVW2o6z21R6w9B5wFN3uoVIJbZFYBhm4RvHcGdi8bilu56%2Bav37btlyjA%2Blfzg6yiMzOUkpR7BWN8PMgyP1Sn0YZwyAf0C%2FcAA6GL%2FEDYZQln8yC4GXZp0jDz1aemBjqwAVvcZzIC9VA4Vystn4GKfoHPMESV21LbD5hQXEPuqTmWXAvwK%2BaqF2Yc1e38WuiGFHqMVism5XaHLpX0pCI4Y4dqU04R74%2BPnw%2FxnA6BKiu47JHhKBMPgZmM4fVjPyJH6jSI6K7U0QXe9uYYGXVfCmDXDhVz40hHSM0gzKe30xCxc4fmQf431PvmOyUIqdu04zyIGM9i94bjcnYP%2FsIBjFBqaiJaUUt09yPwYHdvGoNp&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230802T070901Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Credential=ASIASXCYXIIFJVNUG67W%2F20230802%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=d23118fce2e8d6528648552ff22559e0c06352c8b8a527cb96c3db96a44bf475" alt="" width="280px" height="300px" class="featured-card-img">
+            
+                </div>
+
+                <div class="featured-card-ingredient-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>Pizza Dough</li>
+                
+                <li>sugar</li>
+                
+                <li>oil</li>
+                            
+                
+                </div>
+                
+                <div class="featured-card-recipe-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>1 Basic Pizza Dough</li>
+                
+                <li>sugar</li>
+                
+                <li>oil</li>
+                
+                                
+                </div>
+
+                <div class="featured-card-btn-box">
+                    <button id="featured-ingredient-2" class="see-ingredients featured-show">See ingredients</button>
+                    <button id="featured-recipe-2" class="see-recipe featured-show">See Recipe</button>
+                </div>
+
+            </div>
+
+            <div id="featured-3" class="featured-card">
+                
+                <h3 id="featured-main-3" class="featured-card-name featured-show">Burnt-Scallion Fish</h3>
+
+                <div class="featured-card-main-layer  featured-card-inner-layer">
+                    
+                    <img src="https://edamam-product-images.s3.amazonaws.com/web-img/a96/a967fbe797803dbe8418a668cf304b53.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE4aCXVzLWVhc3QtMSJIMEYCIQDX1AFaam1W7BOOfmwMe28p19tFUKnlKDT81NISLpeChwIhAM9ms5y9IdEuYJEST8GCTmsXfGhGVIHpS8MoNMsSM856KsIFCOf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMMTg3MDE3MTUwOTg2Igxjz9fzzROD28PsBX4qlgX3SA0W2il8TlY6a30ND70UgP7DJqgYZHIgOtkxWJix4CdoLV637Yn%2FpBgvKh95zDjoNd9166C6F3N0JwNds2qLCnMeSyFh1lpsloCKhMX%2FJKo9uFi7kDPSvB%2BwMPw04aRECRoX3VZ4CMCCkZFVhTNxuf1eOEkatm7J8ObamR%2F5nS8DteKGBRi7qfIe84doGip4am8OiAAl17ML1uIhAxnIVteS8W1%2BwcXb0%2BGif4zkB83t0lsvqm3igCtI0zaM9E%2Bt1YQIiztOgkkqOPYXx33J3qnptXJjcDaiR1P1J7oDIe%2B1tZg4GybHfOHNAycHOT%2BjHYM9KcUE6JHtbu22yyBqDLWltNn8vs%2FJS0HI1aEVpWw9J%2F0r%2B%2BUuB3i7qDVK2HzrijHrWBaw67b9Cqx3lb8JCHQEaU67aHR7dCEM0SODGmoJSQ0bLzb7LAPQG6LR3UDm3CNn4YgF0gaE4uSSMVXigLmqgFeHsR%2BDBL7JYn%2BpBIEst0AF2clu2l5dmy2QOC218Vlst8UaGKhcV8n4r2mbin7Gl2vgpfaKTbwsK9j39aMdfnBkV9PHnF0TmujLF0ztjPhTL%2FaoTKN8Po2QhW4KztI1gEPqEKX%2BAHktMIrNWwPKK0mG1o5WYRBNxzOH3QN5MxaHLI5HpPoQ4FIsAuQLhizUF0YZ0DjZMwjNJNNmTmD0w5qidVFHLbJ4gJ4NbyFzStZVm%2F9jZxe1Ju89E2I%2FCY%2FR8cWFtqMckSY2wkds8nQYO2Q3W7dbNSXkz4l%2BVW2o6z21R6w9B5wFN3uoVIJbZFYBhm4RvHcGdi8bilu56%2Bav37btlyjA%2Blfzg6yiMzOUkpR7BWN8PMgyP1Sn0YZwyAf0C%2FcAA6GL%2FEDYZQln8yC4GXZp0jDz1aemBjqwAVvcZzIC9VA4Vystn4GKfoHPMESV21LbD5hQXEPuqTmWXAvwK%2BaqF2Yc1e38WuiGFHqMVism5XaHLpX0pCI4Y4dqU04R74%2BPnw%2FxnA6BKiu47JHhKBMPgZmM4fVjPyJH6jSI6K7U0QXe9uYYGXVfCmDXDhVz40hHSM0gzKe30xCxc4fmQf431PvmOyUIqdu04zyIGM9i94bjcnYP%2FsIBjFBqaiJaUUt09yPwYHdvGoNp&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230802T070904Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Credential=ASIASXCYXIIFJVNUG67W%2F20230802%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=38eddb66d8552f24afd270d2f89e18fa32536c3f0cc221a74b4355c41c3eab9c" alt="" width="280px" height="300px" class="featured-card-img">
+            
+                </div>
+
+                <div class="featured-card-ingredient-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>scallions</li>
+                
+                <li>butter</li>
+                
+                <li>fish filets</li>
+                            
+                
+                </div>
+                
+                <div class="featured-card-recipe-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>2 bunches scallions</li>
+                
+                <li>8 tbsp. butter</li>
+                
+                <li>2 8-oz. fish filets</li>
+                
+                                
+                </div>
+
+                <div class="featured-card-btn-box">
+                    <button id="featured-ingredient-3" class="see-ingredients featured-show">See ingredients</button>
+                    <button id="featured-recipe-3" class="see-recipe featured-show">See Recipe</button>
+                </div>
+
+            </div>
+
+            <div id="featured-4" class="featured-card">
+                
+                <h3 id="featured-main-4" class="featured-card-name featured-show">Nepali Momo</h3>
+
+                <div class="featured-card-main-layer  featured-card-inner-layer">
+                    
+                    <img src="https://edamam-product-images.s3.amazonaws.com/web-img/f52/f5240840ff0d6c7a7f5673f25ba450e1.jpeg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aCXVzLWVhc3QtMSJGMEQCIBAxNnXYyZ53%2FOuvb3szdEfksjoMzKMAkel9c%2BRO0J6cAiB99yfp4nByVjQv2tCpvPBuDdW1QWNMMlaGiPCaJgPDkCrCBQjo%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDE4NzAxNzE1MDk4NiIMpC6BTFTCDc%2FpafpyKpYF9ld%2FwXbSRVmwv2ExOsYYkrUboezVkaGwFFo6eJMK9Mit7cIMLhpzLtQQ75n2J%2B%2ByMSHw97iMHO24G5eZ%2BmoEnLzKUHHdZggG6zNZFmN5VHtihVRRrDEUogKhMCZY%2FOJ%2FZEohFLY1YgqtBRLSAU79%2F8udYCg2HzdLJX%2FgxGpHQ4ehypyc5D9z9f%2FLy0LUGJaHDTFrc%2BrBIuAXun8M1wUofO5WDUXXPHeBQ7CCMNgZWQYowXoPWZQs6NwLo5nK%2FoXYzhKWyYPDQb4ODwnno1nT8ZpchG5Q7%2Fkq4m4sePTCXDCtUMTpFsosl36DurGhVha5q8x%2F7u1wKE8974oLrAmLjLsG8JG8gaPGKAyU7VpXM2VNrV2ZaQII22Qv0a0aMH5fYrw%2FEnNzDFGdsPYy8391qOHts%2BhrEPcpFbW3B5zABpLQSsWU7FNmUR6%2FfQM1w71p6ciUdJ1hN%2BDAY9j3CxhuTynV%2FwutdyL4hnJzyGD3kQ9%2FEgnfK5XQpkUrieo7Er4vOmwUH9DNUqxQJg0RD0skN2aX5cBHDHEOYm6m%2BYBgT05z45z42iloufYgJzIxpvEk4YW0he4ZjiL3CG%2FAlTkCIbduuZr03BtBJuDaUdBtTRJsnj5g2iRrKH%2FiuH1FeYOzMi7bWDX5OGLd9VfOupoGubAi10%2BIB7Hzfi%2BCx%2BWXKf6F%2ButwfpSG7jMEaLmzOQOIrNibAQoOaCe%2Bg%2FthfIWL3IldI88NUHaD5FWWu1kP9nuQAg2OvzuWRBxMnKez9FJ4oCZwhT8tjMA9erAXcpE%2FwOvGug%2BgzOwyC%2BBUg5VNUF%2FDJx%2FZMoVhLRrhv%2FxRZ%2BEZoF8xljvgSUf1Irct6IGmWKeoRQJAd3zzLmdTpSDy7owBFgsC0Eow1%2BynpgY6sgHG1JNNmhYC64V0DzYipLORMr3lyf7fFjj0HRh87pcC1AXsYtQIWMwj4hdNUUhe7u537qtF2dVHN7ZbYSa%2F5WW76VSrqxRva%2B%2FeorZfzYEpIaMbAkD22AOWyGAS1b3Z0LdeTUKkxQ6h3t1FXt6YV%2BdViq6CiJOBmo8igixWdZhWVOxMgENvxlglK5VS6d8vskJNebxClEsSQRzaori35gIMHmi2YKvFsTQjfSkEgDj5th0G&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230802T070904Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Credential=ASIASXCYXIIFKVVTQUUE%2F20230802%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=1204638123f21aa8d291a3f74a5d0c9be29dc9a43cee9738aa086f4ec38b910d" alt="" width="280px" height="300px" class="featured-card-img">
+            
+                </div>
+
+                <div class="featured-card-ingredient-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>all-purpose flour</li>
+                
+                <li>chicken thighs</li>
+                
+                <li>cilantro</li>
+                
+                <li>onions</li>
+                
+                <li>garlic</li>
+                
+                <li>peeled ginger</li>
+                
+                <li>cumin</li>
+                
+                <li>ground cinnamon</li>
+                
+                <li>Salt</li>
+                
+                <li>black pepper</li>
+                
+                <li>cooking spray</li>
+                            
+                
+                </div>
+                
+                <div class="featured-card-recipe-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>4 cups all-purpose flour</li>
+                
+                <li>2 1/2 pounds ground chicken thighs</li>
+                
+                <li>1 cup chopped fresh cilantro</li>
+                
+                <li>1 cup chopped onions</li>
+                
+                <li>4 tablespoons minced garlic</li>
+                
+                <li>4 tablespoons minced peeled ginger</li>
+                
+                <li>2 tablespoons ground cumin</li>
+                
+                <li>1 teaspoon ground cinnamon</li>
+                
+                <li>Salt and black pepper</li>
+                
+                <li>Nonstick cooking spray</li>
+                
+                                
+                </div>
+
+                <div class="featured-card-btn-box">
+                    <button id="featured-ingredient-4" class="see-ingredients featured-show">See ingredients</button>
+                    <button id="featured-recipe-4" class="see-recipe featured-show">See Recipe</button>
+                </div>
+
+            </div>
+
+            <div id="featured-5" class="featured-card">
+                
+                <h3 id="featured-main-5" class="featured-card-name featured-show">Five Napkin Burger</h3>
+
+                <div class="featured-card-main-layer  featured-card-inner-layer">
+                    
+                    <img src="https://edamam-product-images.s3.amazonaws.com/web-img/b2e/b2e059571b84fae5afb9d30122a4e06e.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aCXVzLWVhc3QtMSJGMEQCIBAxNnXYyZ53%2FOuvb3szdEfksjoMzKMAkel9c%2BRO0J6cAiB99yfp4nByVjQv2tCpvPBuDdW1QWNMMlaGiPCaJgPDkCrCBQjo%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDE4NzAxNzE1MDk4NiIMpC6BTFTCDc%2FpafpyKpYF9ld%2FwXbSRVmwv2ExOsYYkrUboezVkaGwFFo6eJMK9Mit7cIMLhpzLtQQ75n2J%2B%2ByMSHw97iMHO24G5eZ%2BmoEnLzKUHHdZggG6zNZFmN5VHtihVRRrDEUogKhMCZY%2FOJ%2FZEohFLY1YgqtBRLSAU79%2F8udYCg2HzdLJX%2FgxGpHQ4ehypyc5D9z9f%2FLy0LUGJaHDTFrc%2BrBIuAXun8M1wUofO5WDUXXPHeBQ7CCMNgZWQYowXoPWZQs6NwLo5nK%2FoXYzhKWyYPDQb4ODwnno1nT8ZpchG5Q7%2Fkq4m4sePTCXDCtUMTpFsosl36DurGhVha5q8x%2F7u1wKE8974oLrAmLjLsG8JG8gaPGKAyU7VpXM2VNrV2ZaQII22Qv0a0aMH5fYrw%2FEnNzDFGdsPYy8391qOHts%2BhrEPcpFbW3B5zABpLQSsWU7FNmUR6%2FfQM1w71p6ciUdJ1hN%2BDAY9j3CxhuTynV%2FwutdyL4hnJzyGD3kQ9%2FEgnfK5XQpkUrieo7Er4vOmwUH9DNUqxQJg0RD0skN2aX5cBHDHEOYm6m%2BYBgT05z45z42iloufYgJzIxpvEk4YW0he4ZjiL3CG%2FAlTkCIbduuZr03BtBJuDaUdBtTRJsnj5g2iRrKH%2FiuH1FeYOzMi7bWDX5OGLd9VfOupoGubAi10%2BIB7Hzfi%2BCx%2BWXKf6F%2ButwfpSG7jMEaLmzOQOIrNibAQoOaCe%2Bg%2FthfIWL3IldI88NUHaD5FWWu1kP9nuQAg2OvzuWRBxMnKez9FJ4oCZwhT8tjMA9erAXcpE%2FwOvGug%2BgzOwyC%2BBUg5VNUF%2FDJx%2FZMoVhLRrhv%2FxRZ%2BEZoF8xljvgSUf1Irct6IGmWKeoRQJAd3zzLmdTpSDy7owBFgsC0Eow1%2BynpgY6sgHG1JNNmhYC64V0DzYipLORMr3lyf7fFjj0HRh87pcC1AXsYtQIWMwj4hdNUUhe7u537qtF2dVHN7ZbYSa%2F5WW76VSrqxRva%2B%2FeorZfzYEpIaMbAkD22AOWyGAS1b3Z0LdeTUKkxQ6h3t1FXt6YV%2BdViq6CiJOBmo8igixWdZhWVOxMgENvxlglK5VS6d8vskJNebxClEsSQRzaori35gIMHmi2YKvFsTQjfSkEgDj5th0G&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230802T070905Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Credential=ASIASXCYXIIFKVVTQUUE%2F20230802%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=d0aab73d4d209885a8a5dcc764c82bb6cc4e739a2f6032b39075188313579ed2" alt="" width="280px" height="300px" class="featured-card-img">
+            
+                </div>
+
+                <div class="featured-card-ingredient-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>ground chuck</li>
+                
+                <li>hamburger buns</li>
+                
+                <li>Gruyere cheese</li>
+                
+                <li>Onions</li>
+                
+                <li>Aioli</li>
+                            
+                
+                </div>
+                
+                <div class="featured-card-recipe-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>3 3/4 pounds freshly ground chuck</li>
+                
+                <li>6 soft white hamburger buns, split and toasted</li>
+                
+                <li>12 thin slices Gruyere cheese (about 6 ounces)</li>
+                
+                <li>1 1/2 cups Andy D'Amico's Caramelized Onions, heated</li>
+                
+                <li>1 cup Five Napkin Burger Aioli</li>
+                
+                                
+                </div>
+
+                <div class="featured-card-btn-box">
+                    <button id="featured-ingredient-5" class="see-ingredients featured-show">See ingredients</button>
+                    <button id="featured-recipe-5" class="see-recipe featured-show">See Recipe</button>
+                </div>
+
+            </div>
+
+            <div id="featured-6" class="featured-card">
+                
+                <h3 id="featured-main-6" class="featured-card-name featured-show">Cabbage And Noodles</h3>
+
+                <div class="featured-card-main-layer  featured-card-inner-layer">
+                    
+                    <img src="https://edamam-product-images.s3.amazonaws.com/web-img/478/478f2d254440acd1914edfce47e4c65d.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aCXVzLWVhc3QtMSJGMEQCIBAxNnXYyZ53%2FOuvb3szdEfksjoMzKMAkel9c%2BRO0J6cAiB99yfp4nByVjQv2tCpvPBuDdW1QWNMMlaGiPCaJgPDkCrCBQjo%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDE4NzAxNzE1MDk4NiIMpC6BTFTCDc%2FpafpyKpYF9ld%2FwXbSRVmwv2ExOsYYkrUboezVkaGwFFo6eJMK9Mit7cIMLhpzLtQQ75n2J%2B%2ByMSHw97iMHO24G5eZ%2BmoEnLzKUHHdZggG6zNZFmN5VHtihVRRrDEUogKhMCZY%2FOJ%2FZEohFLY1YgqtBRLSAU79%2F8udYCg2HzdLJX%2FgxGpHQ4ehypyc5D9z9f%2FLy0LUGJaHDTFrc%2BrBIuAXun8M1wUofO5WDUXXPHeBQ7CCMNgZWQYowXoPWZQs6NwLo5nK%2FoXYzhKWyYPDQb4ODwnno1nT8ZpchG5Q7%2Fkq4m4sePTCXDCtUMTpFsosl36DurGhVha5q8x%2F7u1wKE8974oLrAmLjLsG8JG8gaPGKAyU7VpXM2VNrV2ZaQII22Qv0a0aMH5fYrw%2FEnNzDFGdsPYy8391qOHts%2BhrEPcpFbW3B5zABpLQSsWU7FNmUR6%2FfQM1w71p6ciUdJ1hN%2BDAY9j3CxhuTynV%2FwutdyL4hnJzyGD3kQ9%2FEgnfK5XQpkUrieo7Er4vOmwUH9DNUqxQJg0RD0skN2aX5cBHDHEOYm6m%2BYBgT05z45z42iloufYgJzIxpvEk4YW0he4ZjiL3CG%2FAlTkCIbduuZr03BtBJuDaUdBtTRJsnj5g2iRrKH%2FiuH1FeYOzMi7bWDX5OGLd9VfOupoGubAi10%2BIB7Hzfi%2BCx%2BWXKf6F%2ButwfpSG7jMEaLmzOQOIrNibAQoOaCe%2Bg%2FthfIWL3IldI88NUHaD5FWWu1kP9nuQAg2OvzuWRBxMnKez9FJ4oCZwhT8tjMA9erAXcpE%2FwOvGug%2BgzOwyC%2BBUg5VNUF%2FDJx%2FZMoVhLRrhv%2FxRZ%2BEZoF8xljvgSUf1Irct6IGmWKeoRQJAd3zzLmdTpSDy7owBFgsC0Eow1%2BynpgY6sgHG1JNNmhYC64V0DzYipLORMr3lyf7fFjj0HRh87pcC1AXsYtQIWMwj4hdNUUhe7u537qtF2dVHN7ZbYSa%2F5WW76VSrqxRva%2B%2FeorZfzYEpIaMbAkD22AOWyGAS1b3Z0LdeTUKkxQ6h3t1FXt6YV%2BdViq6CiJOBmo8igixWdZhWVOxMgENvxlglK5VS6d8vskJNebxClEsSQRzaori35gIMHmi2YKvFsTQjfSkEgDj5th0G&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230802T070906Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Credential=ASIASXCYXIIFKVVTQUUE%2F20230802%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=fe2a774f7864b4abe41c9f8c2a1056b2ee1c0a54a8360a3bea3cea6dbadf6b91" alt="" width="280px" height="300px" class="featured-card-img">
+            
+                </div>
+
+                <div class="featured-card-ingredient-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>yellow onion</li>
+                
+                <li>cabbage</li>
+                
+                <li>butter</li>
+                
+                <li>vegetable oil</li>
+                
+                <li>Salt</li>
+                
+                <li>black pepper</li>
+                
+                <li>wide egg noodles</li>
+                            
+                
+                </div>
+                
+                <div class="featured-card-recipe-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>1 large yellow onion, peeled</li>
+                
+                <li>1/2 head cabbage, cored</li>
+                
+                <li>6 tbsp. butter</li>
+                
+                <li>1 tbsp. vegetable oil</li>
+                
+                <li>Salt and freshly ground black pepper</li>
+                
+                <li>1/2 lb. wide egg noodles</li>
+                
+                                
+                </div>
+
+                <div class="featured-card-btn-box">
+                    <button id="featured-ingredient-6" class="see-ingredients featured-show">See ingredients</button>
+                    <button id="featured-recipe-6" class="see-recipe featured-show">See Recipe</button>
+                </div>
+
+            </div>
+
+            <div id="featured-7" class="featured-card">
+                
+                <h3 id="featured-main-7" class="featured-card-name featured-show">Green Mango FroYo</h3>
+
+                <div class="featured-card-main-layer  featured-card-inner-layer">
+                    
+                    <img src="https://edamam-product-images.s3.amazonaws.com/web-img/27b/27bd004673cd02d64f232c032edb4983.JPG?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEE8aCXVzLWVhc3QtMSJGMEQCIBAxNnXYyZ53%2FOuvb3szdEfksjoMzKMAkel9c%2BRO0J6cAiB99yfp4nByVjQv2tCpvPBuDdW1QWNMMlaGiPCaJgPDkCrCBQjo%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDE4NzAxNzE1MDk4NiIMpC6BTFTCDc%2FpafpyKpYF9ld%2FwXbSRVmwv2ExOsYYkrUboezVkaGwFFo6eJMK9Mit7cIMLhpzLtQQ75n2J%2B%2ByMSHw97iMHO24G5eZ%2BmoEnLzKUHHdZggG6zNZFmN5VHtihVRRrDEUogKhMCZY%2FOJ%2FZEohFLY1YgqtBRLSAU79%2F8udYCg2HzdLJX%2FgxGpHQ4ehypyc5D9z9f%2FLy0LUGJaHDTFrc%2BrBIuAXun8M1wUofO5WDUXXPHeBQ7CCMNgZWQYowXoPWZQs6NwLo5nK%2FoXYzhKWyYPDQb4ODwnno1nT8ZpchG5Q7%2Fkq4m4sePTCXDCtUMTpFsosl36DurGhVha5q8x%2F7u1wKE8974oLrAmLjLsG8JG8gaPGKAyU7VpXM2VNrV2ZaQII22Qv0a0aMH5fYrw%2FEnNzDFGdsPYy8391qOHts%2BhrEPcpFbW3B5zABpLQSsWU7FNmUR6%2FfQM1w71p6ciUdJ1hN%2BDAY9j3CxhuTynV%2FwutdyL4hnJzyGD3kQ9%2FEgnfK5XQpkUrieo7Er4vOmwUH9DNUqxQJg0RD0skN2aX5cBHDHEOYm6m%2BYBgT05z45z42iloufYgJzIxpvEk4YW0he4ZjiL3CG%2FAlTkCIbduuZr03BtBJuDaUdBtTRJsnj5g2iRrKH%2FiuH1FeYOzMi7bWDX5OGLd9VfOupoGubAi10%2BIB7Hzfi%2BCx%2BWXKf6F%2ButwfpSG7jMEaLmzOQOIrNibAQoOaCe%2Bg%2FthfIWL3IldI88NUHaD5FWWu1kP9nuQAg2OvzuWRBxMnKez9FJ4oCZwhT8tjMA9erAXcpE%2FwOvGug%2BgzOwyC%2BBUg5VNUF%2FDJx%2FZMoVhLRrhv%2FxRZ%2BEZoF8xljvgSUf1Irct6IGmWKeoRQJAd3zzLmdTpSDy7owBFgsC0Eow1%2BynpgY6sgHG1JNNmhYC64V0DzYipLORMr3lyf7fFjj0HRh87pcC1AXsYtQIWMwj4hdNUUhe7u537qtF2dVHN7ZbYSa%2F5WW76VSrqxRva%2B%2FeorZfzYEpIaMbAkD22AOWyGAS1b3Z0LdeTUKkxQ6h3t1FXt6YV%2BdViq6CiJOBmo8igixWdZhWVOxMgENvxlglK5VS6d8vskJNebxClEsSQRzaori35gIMHmi2YKvFsTQjfSkEgDj5th0G&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20230802T070906Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Credential=ASIASXCYXIIFKVVTQUUE%2F20230802%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature=a68647578e16a85a65f3f152f271e898f099ceb186c351ea52e6ac4a6c0e2265" alt="" width="280px" height="300px" class="featured-card-img">
+            
+                </div>
+
+                <div class="featured-card-ingredient-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>mango</li>
+                
+                <li>honey</li>
+                
+                <li>greek yogurt</li>
+                            
+                
+                </div>
+                
+                <div class="featured-card-recipe-layer  featured-card-inner-layer" style="display: none;"> 
+                
+                    
+                <li>1 keitt green mango or any mango, cubed</li>
+                
+                <li>3 tablespoons honey, or more to taste</li>
+                
+                <li>2 cups greek yogurt (i like fage total)</li>
+                
+                                
+                </div>
+
+                <div class="featured-card-btn-box">
+                    <button id="featured-ingredient-7" class="see-ingredients featured-show">See ingredients</button>
+                    <button id="featured-recipe-7" class="see-recipe featured-show">See Recipe</button>
+                </div>
+
+            </div>
+        </div>
+
+        
+
+    <footer class="footer">
+        <div class="media-box">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-github"></i></a>
+
+        </div>
+        <div class="disclaimer">
+            &copy; 2023 FlavorQuest. All rights reserved.
+        </div>
+    </footer>
+    
+</body>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="script.js"></script>
+
+</html>
